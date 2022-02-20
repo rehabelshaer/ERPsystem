@@ -1,54 +1,19 @@
 var vendorItem;
 var amountItem;
 var branchItem;
-var date = document.getElementById("date").value;
 
 function handleSubmit(e) {
   const numberGrn = document.getElementById("num").value;
   const date = document.getElementById("date").value;
-  const vendor = document.querySelectorAll("#vendor");
-  const amount = document.querySelectorAll("#amount");
+
+  vendorItem = document.getElementById("vendor").value;
+  amountItem = document.getElementById("amount").value;
+  branchItem = document.getElementById("branch").value;
 
   const mybutton = document.getElementById("button");
   //   e.preventDefault();
   console.log(numberGrn);
   console.log(date);
-
-  var val = document.getElementById("v").value;
-  var optionsvendor = document.getElementById("vendor").childNodes;
-
-  var valAmount = document.getElementById("am").value;
-  var optionsAmount = document.getElementById("amount").childNodes;
-
-  var valBranch = document.getElementById("b").value;
-  var optionsBranch = document.getElementById("branch").childNodes;
-
-  for (i = 0; i < optionsvendor.length; i++) {
-    if (optionsvendor[i].value !== undefined) {
-      if (optionsvendor[i].value === val) {
-        vendorItem = optionsvendor[i].value;
-        console.log(vendorItem);
-      }
-    }
-  }
-
-  for (i = 0; i < optionsAmount.length; i++) {
-    if (optionsAmount[i].value !== undefined) {
-      if (optionsAmount[i].value === valAmount) {
-        amountItem = optionsAmount[i].value;
-        console.log(amountItem);
-      }
-    }
-  }
-
-  for (i = 0; i < optionsBranch.length; i++) {
-    if (optionsBranch[i].value !== undefined) {
-      if (optionsBranch[i].value === valBranch) {
-        branchItem = optionsBranch[i].value;
-        console.log(branchItem);
-      }
-    }
-  }
 
   var table = document.querySelector("#mytable>tbody");
   var editbtn = document.getElementById("edit-btn");
@@ -103,3 +68,39 @@ function saveEditRow() {
   table.rows[rIndex].cells[0].innerHTML = numberGrn;
   //   table.rows[rIndex].cells[2].innerHTML = document.getElementById("num").value;
 }
+
+// var val = document.getElementById("v").value;
+// var optionsvendor = document.getElementById("vendor").childNodes;
+
+// var valAmount = document.getElementById("am").value;
+// var optionsAmount = document.getElementById("amount").childNodes;
+
+// var valBranch = document.getElementById("b").value;
+// var optionsBranch = document.getElementById("branch").childNodes;
+
+// for (i = 0; i < optionsvendor.length; i++) {
+//   if (optionsvendor[i].value !== undefined) {
+//     if (optionsvendor[i].value === val) {
+//       vendorItem = optionsvendor[i].value;
+//       console.log(vendorItem);
+//     }
+//   }
+// }
+
+// for (i = 0; i < optionsAmount.length; i++) {
+//   if (optionsAmount[i].value !== undefined) {
+//     if (optionsAmount[i].value === valAmount) {
+//       amountItem = optionsAmount[i].value;
+//       console.log(amountItem);
+//     }
+//   }
+// }
+
+// for (i = 0; i < optionsBranch.length; i++) {
+//   if (optionsBranch[i].value !== undefined) {
+//     if (optionsBranch[i].value === valBranch) {
+//       branchItem = optionsBranch[i].value;
+//       console.log(branchItem);
+//     }
+//   }
+// }

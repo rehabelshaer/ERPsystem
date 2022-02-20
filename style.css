@@ -14,6 +14,7 @@
 #nav-toggle {
   display: none;
 }
+/* (+)is used to select an element that is directly after another specific element. */
 #nav-toggle:checked + .sidebar {
   width: 70px;
 }
@@ -40,6 +41,7 @@
 #nav-toggle:checked ~ .main-content {
   margin-left: 70px;
 }
+/*(~) selects all elements that are next siblings of a specified element */
 #nav-toggle:checked ~ .main-content header {
   width: calc(100% - 70px);
   left: 70px;
@@ -201,6 +203,14 @@ select:nth-child(3) {
 .table .delete-btn,
 .editrow {
   display: none;
+}
+.selectItem {
+  border: 1px solid #dddddd;
+  padding: 5px 63px;
+  color: #5b6666;
+  border-radius: 5px;
+  margin-right: 8px;
+  margin-bottom: 15px;
 }
 /* media */
 @media only screen and (max-width: 1200px) {

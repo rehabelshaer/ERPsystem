@@ -16,7 +16,12 @@ static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -26,7 +31,6 @@ static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
     <title>Erp system</title>
   </head>
   <body>
-    
     <script src="/momentjs/lib/moment/moment-with-locales.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -57,7 +61,6 @@ static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
               ><span class="las la-users"></span> <span>Customers</span></a
             >
           </li>
-          
 
           <li>
             <a href=""
@@ -70,21 +73,19 @@ static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
             >
           </li>
           <li>
-
             <a href=""
-              ><span class="fa fa-shopping-cart"></span> <span>Purchase</span></a
+              ><span class="fa fa-shopping-cart"></span>
+              <span>Purchase</span></a
             >
           </li>
           <li>
-
             <a href=""
               ><span class="fa fa-id-badge"></span> <span>Accounts</span></a
             >
           </li>
           <li>
             <a href=""
-              ><span class="fa fa-bar-chart"></span>
-              <span>VAT</span></a
+              ><span class="fa fa-bar-chart"></span> <span>VAT</span></a
             >
           </li>
           <li>
@@ -134,178 +135,276 @@ static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
         </div>
       </header>
       <main>
-          <div style="text-align: right;padding: 0px 0px 10px 0px;">
-            <button type="button" class="add-grn btn btn-primary"> + Add GRN Consignment</button>
-          </div>
+        <div style="text-align: right; padding: 0px 0px 10px 0px">
+          <button type="button" class="add-grn btn btn-primary">
+            + Add GRN Consignment
+          </button>
+        </div>
         <div class="card">
-       <form id="form">
-        <div class="input-box">
-            <input id="num" placeholder="GRN No...." type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-            />
-            <input id="date" placeholder="Date" type="date"  />
-            <input list="vendor" id="v" name="vendor" placeholder="Vendor:"/></label>
-              <datalist id="vendor" >
-              <option value="Vendor name">
-              <option value="Vendor name">
-              <option value="Vendor name">
-              </datalist>
-              <input list="amount" id="am" name="amount" placeholder="Amount"/></label>
-              <datalist id="amount">
-              <option value="Payment Term">
-              <option value="Payment Term">
-              <option value="Payment Term">
-              </datalist>
-              <input list="branch" id="b" name="branch" placeholder="Branch"/></label>
-              <datalist id="branch">
-              <option value="Amount">
-              <option value="Amount">
-              <option value="Amount">
-              </datalist>
+          <form id="form">
+            <div class="input-box">
+              <input
+                id="num"
+                placeholder="GRN No...."
+                type="text"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
+              <input id="date" placeholder="Date" type="date" />
+
+              <select class="selectItem vendor" id="vendor">
+                <option value="vendor">vendor</option>
+                <option value="test2">test2</option>
+                <option value="test3">test3</option>
+              </select>
+              <select class="selectItem amount" id="amount">
+                <option value="amount">amount</option>
+                <option value="amount">test2</option>
+                <option value="amount">test3</option>
+              </select>
+              <select class="selectItem branch" id="branch">
+                <option value="branch">branch</option>
+                <option value="test2">test2</option>
+                <option value="test3">test3</option>
+              </select>
               <div class="button">
-                <button onclick="saveEditRow()" style="display: block;" id="button" type="button" class="btn btn-primary">Save Changes</button>
+                <button
+                  onclick="saveEditRow()"
+                  style="display: block"
+                  id="button"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Save Changes
+                </button>
               </div>
               <div class="button">
-                <button onclick="handleSubmit()" id="button" type="button" class="btn btn-primary">Submit</button>
+                <button
+                  onclick="handleSubmit()"
+                  id="button"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Submit
+                </button>
               </div>
+            </div>
+          </form>
+
+          <div class="table">
+            <table class="table" id="mytable">
+              <thead>
+                <tr>
+                  <th scope="col">GRN No.</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Vendor</th>
+                  <th scope="col">Payment Term</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">67468238</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      onclick="editRow()"
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      onclick="deleteRow(this)"
+                      type="button"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light btnDelete"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2278323</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      onclick="editRow()"
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      onclick="deleteRow(this)"
+                      type="button"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3389239</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      onclick="editRow()"
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="deleteRow(this)"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3389239</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="deleteRow(this)"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3389239</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="deleteRow(this)"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3389239</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="deleteRow(this)"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3389239</th>
+                  <td>sep15,2021</td>
+                  <td>Vendor name</td>
+                  <td>Payment Term</td>
+                  <td>Amount</td>
+                  <td>
+                    <button
+                      type="button"
+                      style="color: #0a66af"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="deleteRow(this)"
+                      style="color: rgb(228, 37, 37)"
+                      class="btn btn-light"
+                    >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <button
+                  id="edit-btn"
+                  type="button"
+                  style="color: #0a66af"
+                  class="btn btn-light edit-btn"
+                >
+                  <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                </button>
+
+                <button
+                  id="delete-btn"
+                  onclick="deleteRow(this)"
+                  type="button"
+                  style="color: rgb(228, 37, 37)"
+                  class="btn btn-light btnDelete delete-btn"
+                >
+                  <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                </button>
+              </tbody>
+            </table>
           </div>
-       </form>
-
-       <div class="table">
-        <table class="table" id="mytable">
-            <thead>
-              <tr>
-                <th scope="col">GRN No.</th>
-                <th scope="col">Date</th>
-                <th scope="col">Vendor</th>
-                <th scope="col">Payment Term</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Actions</th>
-
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">67468238</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button onclick="editRow()" type="button"style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button  onclick="deleteRow(this)" type="button" style="color:rgb(228, 37, 37);" class="btn btn-light btnDelete"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-               
-
-              </tr>
-              <tr>
-                <th scope="row">2278323</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button  onclick="editRow()"type="button"style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button onclick="deleteRow(this)" type="button" style="color:rgb(228, 37, 37);" class="btn btn-light"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3389239</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button  onclick="editRow()" type="button"style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button type="button" onclick="deleteRow(this)" style="color:rgb(228, 37, 37);" class="btn btn-light"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3389239</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button type="button" style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button type="button" onclick="deleteRow(this)" style="color:rgb(228, 37, 37);" class="btn btn-light"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3389239</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button type="button"style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button type="button" onclick="deleteRow(this)" style="color:rgb(228, 37, 37);" class="btn btn-light"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3389239</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button type="button"style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button type="button" onclick="deleteRow(this)" style="color:rgb(228, 37, 37);" class="btn btn-light"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3389239</th>
-                <td>sep15,2021</td>
-                <td>Vendor name</td>
-                <td>Payment Term</td>
-                <td>Amount</td>
-                <td>
-                    <button type="button"style="color:#0a66af;" class="btn btn-light"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        Edit</button>
-
-                    <button type="button" onclick="deleteRow(this)" style="color:rgb(228, 37, 37);" class="btn btn-light"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete</button>
-
-                </td>
-              </tr>
-              <button id="edit-btn"  type="button"style="color:#0a66af;" class="btn btn-light edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>
-                Edit</button>
-
-            <button id="delete-btn" onclick="deleteRow(this)" type="button" style="color:rgb(228, 37, 37);" class="btn btn-light btnDelete delete-btn"> <i class="fa fa-trash-o" aria-hidden="true"></i>
-                Delete</button>
-             
-            </tbody>
-          </table>
-
-       </div>
         </div>
       </main>
     </div>
     <script src="moment.js"></script>
-
   </body>
 </html>
